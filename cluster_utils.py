@@ -48,14 +48,26 @@ class Cluster:
         return any(c.overlaps(circle) for c in self.circles)
 
 def reduce_clusters(ctuple_list):
+    circles = [Circle(x, y, r) for x, y, r in ctuple_list]
+    clusters = []
+
+    """
+    Error handling
+    """
+    if not isinstance(ctuple_list, list):
+        raise TypeError("Input should be a list of ctuples.")
+    for ctuple in ctuple_list:
+        if not isinstance(ctuple, tuple) or len(ctuple) != 3:
+            raise ValueError("Each ctuple must be a tuple of three numbers.")
+        if not all(isinstance(n, (int, float)) for n in ctuple):
+            raise ValueError("Each element in ctuple must be a number.")
+
     """
     Reduce clusters to the circle with the maximum area in each cluster.
 
     :param ctuple_list: A list of ctuples representing circles.
     :return: A list of ctuples where each ctuple represents the circle with the maximum area in each cluster.
     """
-    circles = [Circle(x, y, r) for x, y, r in ctuple_list]
-    clusters = []
     for circle in circles:
         added = False # flag to check if circle has been added to any cluster
         for cluster in clusters:
