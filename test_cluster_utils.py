@@ -4,7 +4,7 @@ from cluster_utils import reduce_clusters
 class TestClusterUtils(unittest.TestCase):
     def test_standard_case(self):
         """
-        Positive test case with overlapping and not overlapping
+        Positive test case with overlapping
         """
         ctuples = [(0.5, 0.5, 0.5), (1.5, 1.5, 1.1), (0.7, 0.7, 0.4), (4, 4, 0.7)]
         expected = [(1.5, 1.5, 1.1), (4, 4, 0.7)]
