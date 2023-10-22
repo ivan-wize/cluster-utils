@@ -8,7 +8,7 @@ class Circle:
         self.x = x
         self.y = y
         self.radius = r
-        self.area = math.pi * r**2 # implement formula to find the area
+        self.area = math.pi * r**2 # implement formula to find the area (pi * r^)
 
     def distance(self, other):
         """
@@ -16,7 +16,7 @@ class Circle:
         """
         return ((self.x - other.x)**2 + (self.y - other.y)**2)**0.5
 
-    def overlaps(self, other):
+    def overlap(self, other):
         """
         Find if circles overlap
         """
@@ -35,11 +35,11 @@ class Cluster:
         """
         self.circles.append(circle)
 
-    def has_overlap(self, circle):
+    def overlap_exist(self, circle):
         """
         Check if a given circle overlaps with any circle in the cluster
         """
-        return any(c.overlaps(circle) for c in self.circles)
+        return any(c.overlap(circle) for c in self.circles)
 
 def reduce_clusters(ctuple_list):
     """
@@ -51,7 +51,7 @@ def reduce_clusters(ctuple_list):
     for circle in circles:
         added = False
         for cluster in clusters:
-            if cluster.has_overlap(circle):
+            if cluster.overlap_exist(circle):
                 cluster.add_circle(circle)
                 added = True
                 break
