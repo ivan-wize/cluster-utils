@@ -14,4 +14,4 @@
 - Run `python main.py`
 
 ## Testing
-Navigate to the project directory in the terminal and run `python -m unittest test_cluster_utils.py` to thest the function
+Navigate to the project directory in the terminal and run `python -m unittest test_cluster_utils.py` to test the function
