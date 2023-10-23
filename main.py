@@ -1,4 +1,4 @@
-from cluster_utils import reduce_clusters
+from clusterUtils import reduce_clusters
 
 def main():
     input_ctuples1 = [(0.5, 0.5, 0.5), (1.5, 1.5, 1.1), (0.7, 0.7, 0.4), (4, 4, 0.7)]
