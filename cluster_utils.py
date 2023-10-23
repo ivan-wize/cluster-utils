@@ -45,6 +45,15 @@ def reduce_clusters(ctuple_list):
     """
     Reduce clusters to the circle with the maximum area in each cluster
     """
+    # Handle errors
+    if not isinstance(ctuple_list, list):
+        raise TypeError("Enter a valid list of ctuples")
+    for ctuple in ctuple_list:
+        if not isinstance(ctuple, tuple) or len(ctuple) != 3:
+            raise ValueError("Each ctuple must include a tuple of three numbers")
+        if not all(isinstance(n, (int, float)) for n in ctuple):
+            raise ValueError("Each element in ctuple must be valid a number")
+        
     circles = [Circle(x, y, r) for x, y, r in ctuple_list]
     clusters = []
 
@@ -62,16 +71,5 @@ def reduce_clusters(ctuple_list):
     for cluster in clusters:
         max_area_circle = max(cluster.circles, key=lambda c: c.area)
         reduced_clusters.append((max_area_circle.x, max_area_circle.y, max_area_circle.radius))
-
-    """
-    Handle errors
-    """
-    if not isinstance(ctuple_list, list):
-        raise TypeError("Enter a valid list of ctuples")
-    for ctuple in ctuple_list:
-        if not isinstance(ctuple, tuple) or len(ctuple) != 3:
-            raise ValueError("Each ctuple must include a tuple of three numbers")
-        if not all(isinstance(n, (int, float)) for n in ctuple):
-            raise ValueError("Each element in ctuple must be valid a number")
 
     return reduced_clusters
