@@ -5,7 +5,7 @@
 - Python 3.6 +
 
 ## Files
-- `cluster_utils.py` contains `Circle` and `Cluster` classes, and `reduce_clusters` function.
+- `clusterUtils.py` contains `Circle` and `Cluster` classes, and `reduce_clusters` function.
 - `main.py` contains the `main` function that uses `reduce_clusters` to process the input data and print the result
 
 ## Usage
@@ -14,4 +14,4 @@
 - Run `python main.py`
 
 ## Testing
-Navigate to the project directory in the terminal and run `python -m unittest test_cluster_utils.py` to test the function
+Navigate to the project directory in the terminal and run `python -m unittest testClusterUtils.py` to test the function
